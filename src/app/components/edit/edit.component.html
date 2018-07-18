@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">First Name</label>
+        <input type="text" class="form-control" name="first_name" formControlName="first_name" #first_name [(ngModel)] = "adunit.first_name"/>
+      </div>
+      <div *ngIf="angForm.controls['first_name'].invalid && (angForm.controls['first_name'].dirty || angForm.controls['first_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['first_name'].errors.required">
+          First Name is required.
+        </div>
+      </div>
+	  <div class="form-group">
+        <label class="col-md-4">Surname</label>
+        <input type="text" class="form-control" name="surname" formControlName="surname" #surname [(ngModel)] = "adunit.surname"/>
+      </div>
+      <div *ngIf="angForm.controls['surname'].invalid && (angForm.controls['surname'].dirty || angForm.controls['surname'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['surname'].errors.required">
+          Surame is required.
+        </div>
+      </div>
+	  <div class="form-group">
+        <label class="col-md-4">Email</label>
+        <input type="text" class="form-control" name="Email" formControlName="Email" #Email [(ngModel)] = "adunit.Email"/>
+      </div>
+      <div *ngIf="angForm.controls['Email'].invalid && (angForm.controls['Email'].dirty || angForm.controls['Email'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Email'].errors.required">
+          Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Password</label>
+        <input type="text" class="form-control" name="password" formControlName="password" #password [(ngModel)] = "adunit.password"/>
+      </div>
+      <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['password'].errors.required">
+          Password is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateAdUnit(first_name.value, surname.value, email.value, password.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Unit</button>
+      </div>
+    </form>
+  </div>
+</div>
